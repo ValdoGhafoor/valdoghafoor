@@ -1,81 +1,101 @@
-<template>
-  <div :class="$style['Root']">
-    <div :class="$style['Room']">
-      <div :class="[$style['Wall'], $style['Left']]" />
-      <div :class="[$style['Wall'], $style['Right']]" />
-      <div :class="[$style['Wall'], $style['Back']]" />
-      <div :class="[$style['Wall'], $style['Top']]" />
-      <div :class="[$style['Wall'], $style['Bottom']]" />
-    </div>
-  </div>
-</template>
-
 <script>
+import { mapState } from 'vuex'
 
 export default {
-  mounted () {
-    document.documentElement.style
-      .setProperty('--height', window.innerHeight + 'px')
+  computed: {
+    ...mapState({
+      lookingSide: 'lookingSide'
+    }),
+    sideClass () {
+      return this.$style[`Box-${this.lookingSide}`]
+    }
+  },
+  components: {
+    Skills: () => import('@/ui/components/Skills'),
+    Wall: () => import('@/ui/components/Wall')
   }
 }
 </script>
 
+<template>
+  <div :class="$style['Root']">
+    <div
+      :class="[
+        $style['Box'],
+        sideClass
+      ]"
+    >
+      <Wall
+        side="left"
+        title="skills"
+      >
+        <Skills />
+      </Wall>
+
+      <Wall
+        side="right"
+        title="dunno"
+      />
+
+      <Wall
+        side="top"
+        title="dunno"
+      />
+
+      <Wall
+        side="bottom"
+        title="dunno"
+      />
+      <Wall
+        side="front"
+        title="extra"
+      />
+
+      <Wall
+        side="back"
+        title="description"
+      >
+        <h1>Hey, I'm Valdo.<br> Not any web developer.</h1>
+      </Wall>
+    </div>
+  </div>
+</template>
+
 <style lang='sass' module>
   .Root
-    width: 100%
-    height: 100%
-    perspective: var(--height)
+    --dimension: 40vw
+    width: var(--dimension)
+    height: var(--dimension)
+    perspective: var(--dimension)
 
-  .Room
-    width: 100%
-    height: 100%
+    +md
+      --dimension: 80vw
+
+  .Box
+    width: var(--dimension)
+    height: var(--dimension)
     transform-style: preserve-3d
-
-  .Wall
-    position: absolute
-    width: 100%
-    height: 100%
-    font-size: 5rem
-    color: white
-    display: flex
-    justify-content: center
-    align-items: center
-    background: $black
-    border: 4px solid $lightblue
-
-  .Back
     transform-origin: center
-    transform: translateZ(calc(var(--height) * -1))
-    height: calc(100% - 1px)
+    transition-duration: 1000ms
+    transition-timing-function: ease
+    pointer-events: none
 
-  .Bottom
-    transform-origin: center bottom
-    transform: rotateX(90deg)
-    bottom: -6px
-    left: 0
-    border-bottom: 0
+    &-right
+      transform: translate3d(calc(var(--dimension) / 2), 0, calc(var(--dimension) / 3)) rotateY(90deg)
 
-  .Top
-    top: 0
-    left: 0
-    transform-origin: center top
-    transform: rotateX(-90deg)
-    border-top: 0
+    &-left
+      transform: translate3d(calc(var(--dimension) / 2 * -1), 0, calc(var(--dimension) / 3)) rotateY(-90deg)
 
-  .Left
-    top: -1px
-    left: 0
-    transform-origin: left center
-    transform: rotateY(90deg)
-    min-width: 150rem
-    border-left: 0
+    &-front
+      transform: translate3d(0, 0, calc(var(--dimension) * -1)) rotateX(0deg) rotateY(-180deg)
 
-  .Right
-    top: -1px
-    left: 2px
-    transform-origin: right center
-    transform: rotateY(-90deg)
-    min-width: 32rem
-    border-right: 0
+    &-back
+      transform: translate3d(0, 0, 0)
+
+    &-top
+      transform: translate3d(0, calc(var(--dimension) / 2 * -1), calc(var(--dimension) / 3)) rotateX(90deg)
+
+    &-bottom
+      transform: translate3d(0, calc(var(--dimension) / 2), calc(var(--dimension) / 3)) rotateX(-90deg)
 
 </style>

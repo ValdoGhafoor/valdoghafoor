@@ -18,9 +18,6 @@ export default {
 
 <style lang="sass" module>
   .Root
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
     font-size: 1.4rem
-    font-family: Montserrat, Helvetica, Arial
     height: 100%
 </style>

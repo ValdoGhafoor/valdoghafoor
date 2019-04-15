@@ -3,7 +3,7 @@
     :class="$style['Root']"
   >
     <Room />
-    <Desk :class="$style['Desk']" />
+    <!-- <Desk :class="$style['Desk']" /> -->
   </div>
 </template>
 
@@ -15,7 +15,6 @@ export default {
       .setProperty('--height', window.innerHeight + 'px')
   },
   components: {
-    Desk: () => import('@/ui/components/Desk'),
     Room: () => import('@/ui/components/Room')
   }
 }
@@ -23,14 +22,14 @@ export default {
 
 <style lang='sass' module>
   .Root
-    min-height: 80rem
-    min-width: 90rem
-    max-height: 100%
+    width: 100%
     height: 100%
     display: flex
     justify-content: center
+    align-items: center
     position: relative
     overflow: scroll
+    background: $black
 
     .Desk
       position: absolute
