@@ -1,43 +1,30 @@
 <template>
   <div
-    :class="[
-      $style['Root'],
-      isDay || isLightOn ? '' : $style['Root-noEvents'],
-    ]"
+    :class="$style['Root']"
   >
-    <div :class="$style['Wrapper']">
-      <div :class="$style['Room']">
-        <div :class="[$style['Wall'], $style['Left']]" />
-        <div :class="[$style['Wall'], $style['Right']]" />
-        <div :class="[$style['Wall'], $style['Back']]" />
-        <div :class="[$style['Wall'], $style['Top']]" />
-        <div :class="[$style['Wall'], $style['Bottom']]" />
-      </div>
-    </div>
+    <Room />
+    <Desk :class="$style['Desk']" />
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
 
 export default {
-  computed: {
-    ...mapState({
-      isLightOn: 'isLightOn',
-      isDay: 'isDay'
-    })
-  },
   mounted () {
     document.documentElement.style
       .setProperty('--height', window.innerHeight + 'px')
   },
-  methods: mapActions(['switchLight'])
+  components: {
+    Desk: () => import('@/ui/components/Desk'),
+    Room: () => import('@/ui/components/Room')
+  }
 }
 </script>
 
 <style lang='sass' module>
   .Root
     min-height: 80rem
+    min-width: 90rem
     max-height: 100%
     height: 100%
     display: flex
@@ -45,58 +32,11 @@ export default {
     position: relative
     overflow: scroll
 
-    &-noEvents > :not(.Middle .Top)
-      pointer-events: none
-
-    .Wrapper
-      width: 100%
-      height: 100%
-      perspective: var(--height)
-
-    .Room
-      width: 100%
-      height: 100%
-      transform-style: preserve-3d
-
-    .Wall
+    .Desk
       position: absolute
-      width: 100%
-      height: 100%
-      font-size: 5rem
-      color: white
-      display: flex
-      justify-content: center
-      align-items: center
-      background-image: url('@/assets/images/stars.png')
-
-    .Back
-      transform-origin: center
-      transform: translateZ(calc(var(--height) * -1))
-
-    .Bottom
-      transform-origin: center bottom
-      transform: rotateX(90deg)
-      bottom: 0
-      left: 0
-
-    .Top
-      top: 0
-      left: 0
-      transform-origin: center top
-      transform: rotateX(-90deg)
-
-    .Left
-      top: 0
-      left: 0
-      transform-origin: left center
-      transform: rotateY(90deg)
-      min-width: 100rem
-
-    .Right
-      top: 0
-      right: 0
-      transform-origin: right center
-      transform: rotateY(-90deg)
-      min-width: 100rem
+      bottom: 5%
+      left: 50%
+      transform: translate(-50%, 0)
+      height: 40%
 
 </style>
