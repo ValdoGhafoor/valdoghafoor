@@ -29,7 +29,7 @@ export default {
     align-items: center
     position: relative
     overflow: scroll
-    background: $black
+    background: $white
 
     .Desk
       position: absolute

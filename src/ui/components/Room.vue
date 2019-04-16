@@ -10,6 +10,9 @@ export default {
       return this.$style[`Box-${this.lookingSide}`]
     }
   },
+  mounted () {
+
+  },
   components: {
     Skills: () => import('@/ui/components/Skills'),
     Wall: () => import('@/ui/components/Wall')
@@ -19,61 +22,85 @@ export default {
 
 <template>
   <div :class="$style['Root']">
-    <div
-      :class="[
-        $style['Box'],
-        sideClass
-      ]"
-    >
-      <Wall
-        side="left"
-        title="skills"
+    <div :class="$style['Root-v']">
+      <div
+        :class="[
+          $style['Box'],
+          sideClass
+        ]"
       >
-        <Skills />
-      </Wall>
+        <Wall
+          side="left"
+          title="skills"
+        >
+          <Skills />
+        </Wall>
 
-      <Wall
-        side="right"
-        title="dunno"
-      />
-
-      <Wall
-        side="top"
-        title="dunno"
-      />
-
-      <Wall
-        side="bottom"
-        title="dunno"
-      />
-      <Wall
-        side="front"
-        title="extra"
-      />
-
-      <Wall
-        side="back"
-        title="description"
+        <Wall
+          side="right"
+          title="dunno"
+        />
+      </div>
+    </div>
+    <div :class="$style['Root-h']">
+      <div
+        :class="[
+          $style['Box'],
+          sideClass
+        ]"
       >
-        <h1>Hey, I'm Valdo.<br> Not any web developer.</h1>
-      </Wall>
+        <Wall
+          side="top"
+          title="dunno"
+        />
+
+        <Wall
+          side="bottom"
+          title="dunno"
+        />
+        <Wall
+          side="front"
+          title="extra"
+        />
+
+        <Wall
+          side="back"
+          title="description"
+        >
+          <h1>Hey, I'm Valdo.<br> Not any web developer.</h1>
+        </Wall>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang='sass' module>
   .Root
-    --dimension: 40vw
+    position: relative
+  .Root-v
+    position: absolute
+    top: 0
+    left: 0
+    --dimension: 100vw
     width: var(--dimension)
+    height: 100vh
+    perspective: var(--dimension)
+
+  .Root-h
+    position: absolute
+    top: 0
+    left: 0
+    --dimension: 100vh
+    width: 100vh
     height: var(--dimension)
     perspective: var(--dimension)
 
-    +md
-      --dimension: 80vw
+    // +md
+    //   --dimension: 80vw
 
   .Box
-    width: var(--dimension)
-    height: var(--dimension)
+    width: 100vw
+    height: 100vh
     transform-style: preserve-3d
     transform-origin: center
     transition-duration: 1000ms
