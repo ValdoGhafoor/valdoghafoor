@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    lookingSide: 'back'
+    lookingSide: 'default'
   },
   actions: {
     setLookingSide ({ commit }, side) {

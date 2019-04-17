@@ -1,5 +1,5 @@
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   computed: {
@@ -10,8 +10,25 @@ export default {
       return this.$style[`Box-${this.lookingSide}`]
     }
   },
+  mounted () {
+    document.addEventListener('keydown', this.onKey)
+  },
+  destroyed () {
+    document.removeEventListener('keydown', this.onKey)
+  },
+  methods: {
+    ...mapActions(['setLookingSide']),
+    onKey (event) {
+      const ESCAPE_KEY = 27
+
+      if (event.keyCode === ESCAPE_KEY) {
+        this.setLookingSide('default')
+      }
+    }
+  },
   components: {
     Skills: () => import('@/ui/components/Skills'),
+    TypingText: () => import('@/ui/components/TypingText'),
     Wall: () => import('@/ui/components/Wall')
   }
 }
@@ -34,28 +51,31 @@ export default {
 
       <Wall
         side="right"
-        title="dunno"
+        title="projects"
       />
 
       <Wall
         side="top"
-        title="dunno"
+        title="contact"
       />
 
       <Wall
         side="bottom"
-        title="dunno"
+        title="hobbies"
       />
-      <Wall
-        side="front"
-        title="extra"
-      />
+
+      <Wall side="front">
+        Are you lost ?
+      </Wall>
 
       <Wall
         side="back"
         title="description"
       >
-        <h1>Hey, I'm Valdo.<br> Not any web developer.</h1>
+        <TypingText>
+          Hey, I'm Valdo Ghafoor.
+          Not any web developer.
+        </TypingText>
       </Wall>
     </div>
   </div>
@@ -67,6 +87,7 @@ export default {
     width: var(--dimension)
     height: var(--dimension)
     perspective: var(--dimension)
+    overflow: hidden
 
     +md
       --dimension: 80vw
@@ -81,21 +102,24 @@ export default {
     pointer-events: none
 
     &-right
-      transform: translate3d(calc(var(--dimension) / 2), 0, calc(var(--dimension) / 3)) rotateY(90deg)
+      transform: translate3d(calc(var(--dimension) / 2), 0, calc(var(--dimension) / -20)) rotateY(90deg)
 
     &-left
-      transform: translate3d(calc(var(--dimension) / 2 * -1), 0, calc(var(--dimension) / 3)) rotateY(-90deg)
+      transform: translate3d(calc(var(--dimension) / 2 * -1), 0, calc(var(--dimension) / -20)) rotateY(-90deg)
 
     &-front
-      transform: translate3d(0, 0, calc(var(--dimension) * -1)) rotateX(0deg) rotateY(-180deg)
+      transform: translate3d(0, 0, calc(var(--dimension) / 2 * -1)) rotateX(0deg) rotateY(-180deg)
 
-    &-back
+    &-default
       transform: translate3d(0, 0, 0)
 
+    &-back
+      transform: translate3d(0, 0, calc(var(--dimension) / 2.5))
+
     &-top
-      transform: translate3d(0, calc(var(--dimension) / 2 * -1), calc(var(--dimension) / 3)) rotateX(90deg)
+      transform: translate3d(0, calc(var(--dimension) / 2 * -1), calc(var(--dimension) / -20)) rotateX(90deg)
 
     &-bottom
-      transform: translate3d(0, calc(var(--dimension) / 2), calc(var(--dimension) / 3)) rotateX(-90deg)
+      transform: translate3d(0, calc(var(--dimension) / 2), calc(var(--dimension) / -20)) rotateX(-90deg)
 
 </style>

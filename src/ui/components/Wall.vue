@@ -6,7 +6,7 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      default: ''
     },
     side: {
       type: String,
@@ -33,6 +33,7 @@ export default {
         case 'front':
           return this.side === 'back'
         case 'back':
+        case 'default':
           return this.side === 'front'
         default:
           return false
@@ -89,8 +90,9 @@ export default {
       background: $light
 
     &-hidden
-      opacity: 0
-      visibility: hidden
+      background: transparent
+      color: transparent
+      pointer-events: none
 
     &-back
       transform-origin: center
@@ -98,6 +100,7 @@ export default {
 
     &-front
       transform-origin: center
+      transform: scaleX(-1)
 
     &-bottom
       transform-origin: center bottom

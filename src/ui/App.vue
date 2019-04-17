@@ -20,4 +20,5 @@ export default {
   .Root
     font-size: 1.4rem
     height: 100%
+    background: $black
 </style>

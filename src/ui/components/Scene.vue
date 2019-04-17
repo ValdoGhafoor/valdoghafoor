@@ -2,18 +2,18 @@
   <div
     :class="$style['Root']"
   >
+    <h1 :class="$style['Title']">
+      Welcome to the Cube.<br>
+      Click on faces to naviguate.<br>
+      Press escape if you need to step back.
+    </h1>
     <Room />
-    <!-- <Desk :class="$style['Desk']" /> -->
   </div>
 </template>
 
 <script>
 
 export default {
-  mounted () {
-    document.documentElement.style
-      .setProperty('--height', window.innerHeight + 'px')
-  },
   components: {
     Room: () => import('@/ui/components/Room')
   }
@@ -26,16 +26,14 @@ export default {
     height: 100%
     display: flex
     justify-content: center
+    flex-direction: column
     align-items: center
     position: relative
     overflow: scroll
     background: $black
 
-    .Desk
-      position: absolute
-      bottom: 5%
-      left: 50%
-      transform: translate(-50%, 0)
-      height: 40%
+    .Title
+      color: $white
+      text-align: center
 
 </style>

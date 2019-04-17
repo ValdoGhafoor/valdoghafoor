@@ -27,24 +27,24 @@ export default {
           value: 9
         },
         {
-          label: 'SASS',
-          value: 8
+          label: 'Node.js',
+          value: 9
+        },
+        {
+          label: 'GraphQL',
+          value: 9
         },
         {
           label: 'CSS3',
           value: 8
         },
         {
-          label: 'Node.js',
-          value: 9
+          label: 'SASS',
+          value: 8
         },
         {
           label: 'MongoDB',
           value: 7
-        },
-        {
-          label: 'GraphQL',
-          value: 9
         },
         {
           label: 'Jest',
