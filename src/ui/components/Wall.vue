@@ -57,13 +57,15 @@ export default {
     ]"
     @click="setLookingSide(side)"
   >
-    <slot v-if="selected" />
-    <h2
-      :class="$style['Title']"
-      v-else
-    >
-      {{ title }}
-    </h2>
+    <transition name="fade">
+      <slot v-if="selected" />
+      <h2
+        :class="$style['Title']"
+        v-else
+      >
+        {{ title }}
+      </h2>
+    </transition>
   </div>
 </template>
 
@@ -76,7 +78,7 @@ export default {
     flex-direction: column
     justify-content: center
     align-items: center
-    color: white
+    color: $white
     background: $black
     border: 4px solid $lightblue
     background-repeat: repeat
@@ -132,5 +134,8 @@ export default {
 
     .Title
       text-transform: uppercase
+      position: absolute
+      top: 50%
+      transform: translate(0, -50%)
 
 </style>

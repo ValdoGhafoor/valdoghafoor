@@ -46,6 +46,7 @@ export default {
     background-color: $black
     padding: 0.2rem
     border-radius: 1.5rem
+    font-size: 1.8rem
     border: 0.1rem solid $lightblue
     margin-bottom: 0.5rem
     color: $black

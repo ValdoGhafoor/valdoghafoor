@@ -21,4 +21,7 @@ export default {
     font-size: 1.4rem
     height: 100%
     background: $black
+
+    +sm
+      font-size: 1.2rem
 </style>

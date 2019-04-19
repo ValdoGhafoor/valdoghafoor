@@ -28,7 +28,7 @@ export default {
   },
   components: {
     Skills: () => import('@/ui/components/Skills'),
-    TypingText: () => import('@/ui/components/TypingText'),
+    Description: () => import('@/ui/components/Description'),
     Wall: () => import('@/ui/components/Wall')
   }
 }
@@ -72,10 +72,7 @@ export default {
         side="back"
         title="description"
       >
-        <TypingText>
-          Hey, I'm Valdo Ghafoor.
-          Not any web developer.
-        </TypingText>
+        <Description />
       </Wall>
     </div>
   </div>

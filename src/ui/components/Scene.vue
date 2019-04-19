@@ -34,6 +34,10 @@ export default {
 
     .Title
       color: $white
+      font-size: 2rem
       text-align: center
+
+      +sm
+        font-size: 1.6rem
 
 </style>
