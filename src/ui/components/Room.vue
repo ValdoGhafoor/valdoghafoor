@@ -12,24 +12,30 @@ export default {
   },
   mounted () {
     document.addEventListener('keydown', this.onKey)
+
+    window.onpopstate = this.goBack
   },
   destroyed () {
     document.removeEventListener('keydown', this.onKey)
   },
   methods: {
+    goBack () {
+      this.setLookingSide('default')
+    },
     ...mapActions(['setLookingSide']),
     onKey (event) {
       const ESCAPE_KEY = 27
 
       if (event.keyCode === ESCAPE_KEY) {
-        this.setLookingSide('default')
+        this.goBack()
       }
     }
   },
   components: {
     Skills: () => import('@/ui/components/Skills'),
     Description: () => import('@/ui/components/Description'),
-    Wall: () => import('@/ui/components/Wall')
+    Wall: () => import('@/ui/components/Wall'),
+    Contact: () => import('@/ui/components/Contact')
   }
 }
 </script>
@@ -57,7 +63,9 @@ export default {
       <Wall
         side="top"
         title="contact"
-      />
+      >
+        <Contact />
+      </Wall>
 
       <Wall
         side="bottom"

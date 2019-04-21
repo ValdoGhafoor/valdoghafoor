@@ -1,14 +1,3 @@
-<template>
-  <div :class="$style['Root']">
-    <Skill
-      v-for="(skill, index) in skills"
-      :key="index"
-      :class="$style['Skill']"
-      :skill="skill"
-    />
-  </div>
-</template>
-
 <script>
 export default {
   data () {
@@ -58,6 +47,17 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div :class="$style['Root']">
+    <Skill
+      v-for="(skill, index) in skills"
+      :key="index"
+      :class="$style['Skill']"
+      :skill="skill"
+    />
+  </div>
+</template>
 
 <style lang='sass' module>
   .Root

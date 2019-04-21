@@ -11,7 +11,7 @@ export default {
     <div
       :class="$style['Line']"
       :style="{
-        animationDuration: '0.1s',
+        animationDuration: '1s',
       }"
     >
       <span :class="$style['Declaration']">const</span> freelance = {
@@ -114,32 +114,30 @@ export default {
 <style lang='sass' module>
   .Root
     font-size: 2.5rem
-    margin: 0 auto
 
     .Line
       margin: 0.5rem 0
-      display: flex
       width: 100%
       white-space: nowrap
       overflow: hidden
       animation-name: typing
-      animation-delay: 0.1s
-      animation-duration: 4s
       animation-timing-function: steps(60, end)
+      animation-iteration-count: 1
 
       .Spacer
         width: 2rem
+        display: inline-block
+        min-width: 2rem
 
-    .Value
-      color: $orange
-      margin-left: 1rem
+      .Value
+        color: $orange
+        margin-left: 1rem
 
-    .Declaration
-      color: $purple
-      margin-right: 1rem
+      .Declaration
+        color: $purple
+        margin-right: 1rem
 
-  @keyframe typing
-    from
-      width: 0
-
+    @keyframe typing
+      from
+        width: 0%
 </style>
