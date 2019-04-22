@@ -61,6 +61,7 @@
         id="contact-message"
         name="contact-message"
         v-validate="'required'"
+        rows="10"
         v-model="message"
         :class="$style['Textarea']"
       />
@@ -83,10 +84,10 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      name: 'lol',
-      email: 'valdog@flao.com',
-      subject: 'Yo désolé',
-      message: 'lolilolilolilol',
+      name: null,
+      email: null,
+      subject: null,
+      message: null,
       sent: false,
       error: null
     }
@@ -119,8 +120,41 @@ export default {
   .Root
     display: flex
     flex-direction: column
+    width: 100%
 
     .Field
       display: flex
       flex-direction: column
+      margin-bottom: 2rem
+
+      .Label
+        text-transform: uppercase
+        font-weight: bold
+
+      .Input,
+      .Textarea
+        padding: 0.5rem 1rem
+        border: 0.2rem solid $light
+        opacity: 0.8
+        background: transparent
+        color: $white
+
+        &:focus
+          border-color: $orange
+          opacity: 1
+
+          + .Label
+            color: $orange
+
+      .Textarea
+        resize: vertical
+
+    .Button
+      padding: 1rem 1rem
+      width: 10rem
+      background: $orange
+      border: 0
+      color: $white
+      font-weight: bold
+
 </style>

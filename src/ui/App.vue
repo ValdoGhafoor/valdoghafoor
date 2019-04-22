@@ -1,7 +1,8 @@
 <script>
 export default {
   components: {
-    Scene: () => import('@/ui/components/Scene')
+    Scene: () => import('@/ui/components/Scene'),
+    SvgSprite: () => import('@/ui/components/SvgSprite')
   }
 }
 </script>
@@ -10,6 +11,7 @@ export default {
   <div :class="$style['Root']">
     <Scene />
     <ModalTarget />
+    <SvgSprite />
   </div>
 </template>
 

@@ -32,9 +32,11 @@ export default {
     }
   },
   components: {
+    Wall: () => import('@/ui/components/Wall'),
     Skills: () => import('@/ui/components/Skills'),
     Description: () => import('@/ui/components/Description'),
-    Wall: () => import('@/ui/components/Wall'),
+    Lost: () => import('@/ui/components/Lost'),
+    Hobbies: () => import('@/ui/components/Hobbies'),
     Contact: () => import('@/ui/components/Contact')
   }
 }
@@ -70,10 +72,12 @@ export default {
       <Wall
         side="bottom"
         title="hobbies"
-      />
+      >
+        <Hobbies />
+      </Wall>
 
       <Wall side="front">
-        Are you lost ?
+        <Lost />
       </Wall>
 
       <Wall

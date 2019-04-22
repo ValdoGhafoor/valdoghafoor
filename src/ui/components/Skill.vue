@@ -47,7 +47,7 @@ export default {
     padding: 0.2rem
     border-radius: 1.5rem
     font-size: 1.8rem
-    border: 0.1rem solid $lightblue
+    border: 0.1rem solid $orange
     margin-bottom: 0.5rem
     color: $black
     font-weight: bold
@@ -56,7 +56,7 @@ export default {
     &::before
       padding-left: 1rem
       content: attr(data-skill)
-      background-color: $lightblue
+      background-color: $orange
       display: inline-block
       border-radius: inherit
       animation: load 2s linear

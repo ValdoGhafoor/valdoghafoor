@@ -57,7 +57,12 @@ export default {
     @click="setLookingSide(side)"
   >
     <transition name="fade">
-      <slot v-if="selected" />
+      <div
+        :class="$style['Content']"
+        v-if="selected"
+      >
+        <slot />
+      </div>
       <h2
         :class="$style['Title']"
         v-else
@@ -108,28 +113,34 @@ export default {
       transform: rotateX(90deg)
       bottom: -1px
       left: 0
-      border-bottom: 0
 
     &-top
       top: 0
       left: 0
       transform-origin: center top
       transform: rotateX(-90deg)
-      border-top: 0
 
     &-left
       top: 0
       left: 1px
       transform-origin: left center
       transform: rotateY(90deg)
-      border-left: 0
 
     &-right
       top: 0
       left: 0
       transform-origin: right center
       transform: rotateY(-90deg)
-      border-right: 0
+
+    .Content
+      width: 100%
+      max-width: 40rem
+      max-height: 40rem
+      height: calc(100% - 2px)
+      padding: 1rem
+      display: flex
+      justify-content: center
+      align-items: center
 
     .Title
       text-transform: uppercase

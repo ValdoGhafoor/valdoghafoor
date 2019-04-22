@@ -137,6 +137,9 @@ export default {
         color: $purple
         margin-right: 1rem
 
+    +sm
+      font-size: 1.6rem
+
     @keyframe typing
       from
         width: 0%

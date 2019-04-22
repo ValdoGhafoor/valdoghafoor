@@ -3,7 +3,7 @@
     :class="$style['Root']"
   >
     <h1 :class="$style['Title']">
-      Welcome to the Cube.<br>
+      Welcome to <span :class="$style['Tron']">THE CUBE.</span><br>
       Click on faces to naviguate.<br>
       Press escape if you need to step back.
     </h1>
@@ -39,5 +39,9 @@ export default {
 
       +sm
         font-size: 1.6rem
+
+      .Tron
+        font-family: Tron
+        color: $lightblue
 
 </style>

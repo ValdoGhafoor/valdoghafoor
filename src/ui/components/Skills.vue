@@ -66,7 +66,6 @@ export default {
     justify-content: center
     align-items: center
     width: 100%
-    max-width: 40rem
 
     .Skill
       margin: 0.5rem 0
