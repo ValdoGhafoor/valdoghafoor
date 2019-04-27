@@ -3,7 +3,7 @@
     :class="$style['Root']"
   >
     <h1 :class="$style['Title']">
-      Welcome to <span :class="$style['Tron']">THE CUBE.</span><br>
+      Welcome to my <span :class="$style['Tron']">CUBEFOLIO.</span><br>
       Click on faces to naviguate.<br>
       Press escape if you need to step back.
     </h1>
@@ -30,10 +30,9 @@ export default {
     align-items: center
     position: relative
     overflow: scroll
-    background: $black
 
     .Title
-      color: $white
+      color: $colorPrimary
       font-size: 2rem
       text-align: center
 
@@ -41,7 +40,7 @@ export default {
         font-size: 1.6rem
 
       .Tron
-        font-family: Tron
-        color: $lightblue
-
+        background: $colorHorizontalGradient
+        background-clip: text
+        -webkit-text-fill-color: transparent
 </style>

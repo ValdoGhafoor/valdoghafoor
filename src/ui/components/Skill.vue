@@ -43,20 +43,19 @@ export default {
 
 <style lang='sass' module>
   .Root
-    background-color: $black
     padding: 0.2rem
     border-radius: 1.5rem
     font-size: 1.8rem
-    border: 0.1rem solid $orange
+    border: 1px solid $colorPrimary
     margin-bottom: 0.5rem
-    color: $black
     font-weight: bold
     width: 100%
+    color: $white
 
     &::before
       padding-left: 1rem
       content: attr(data-skill)
-      background-color: $orange
+      background: $colorHorizontalGradient
       display: inline-block
       border-radius: inherit
       animation: load 2s linear

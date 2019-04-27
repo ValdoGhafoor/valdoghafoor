@@ -134,17 +134,17 @@ export default {
       .Input,
       .Textarea
         padding: 0.5rem 1rem
-        border: 0.2rem solid $light
+        border: 0.2rem solid $gray
         opacity: 0.8
         background: transparent
         color: $white
 
         &:focus
-          border-color: $orange
+          border-color: $colorSecondary
           opacity: 1
 
           + .Label
-            color: $orange
+            color: $colorSecondary
 
       .Textarea
         resize: vertical
@@ -152,7 +152,7 @@ export default {
     .Button
       padding: 1rem 1rem
       width: 10rem
-      background: $orange
+      background: $colorSecondary
       border: 0
       color: $white
       font-weight: bold

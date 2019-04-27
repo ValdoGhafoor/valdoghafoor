@@ -1,6 +1,6 @@
 <template>
   <div :class="$style['Root']">
-    <div :class="$style['Line']">
+    <div :class="$style['IconContainer']">
       <svg
         :class="[
           $style['Icon'],
@@ -9,7 +9,9 @@
       >
         <use xlink:href="#boxing" />
       </svg>
+    </div>
 
+    <div :class="$style['IconContainer']">
       <svg
         :class="[
           $style['Icon'],
@@ -19,7 +21,7 @@
         <use xlink:href="#netflix" />
       </svg>
     </div>
-    <div :class="$style['Line']">
+    <div :class="$style['IconContainer']">
       <svg
         :class="[
           $style['Icon'],
@@ -28,7 +30,9 @@
       >
         <use xlink:href="#games" />
       </svg>
+    </div>
 
+    <div :class="$style['IconContainer']">
       <svg
         :class="[
           $style['Icon'],
@@ -45,39 +49,40 @@
   .Root
     width: 100%
     height: 100%
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: space-between
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr 1fr
 
-    .Line
+    .IconContainer
       width: 100%
+      height: 100%
       display: flex
+      justify-content: center
       align-items: center
-      justify-content: space-between
 
-    .Icon
-      width: 10rem
-      height: 10rem
-      padding: 1rem
-      border: 0.3rem solid $orange
-      border-radius: 50%
+      .Icon
+        width: 10rem
+        height: 10rem
+        padding: 1rem
+        border: 0.3rem solid $colorPrimary
+        border-radius: 50%
+        margin: 0 auto
 
-      +sm
-        width: 8rem
-        height: 8rem
+        +sm
+          width: 8rem
+          height: 8rem
 
-      &-wine,
-      &-netflix
-      stroke: $orange
-      fill: $black
+        &-wine,
+        &-netflix
+        stroke: $colorPrimary
+        fill: $white
 
-      &-boxing
-        fill: $black
-        color: $orange
+        &-boxing
+          fill: $white
+          color: $colorPrimary
 
-      &-games
-        fill: $black
-        color: $orange
-        stroke: $orange
+        &-games
+          fill: $white
+          color: $colorPrimary
+          stroke: $colorPrimary
 </style>

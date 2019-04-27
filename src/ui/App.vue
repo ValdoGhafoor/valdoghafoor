@@ -22,7 +22,8 @@ export default {
   .Root
     font-size: 1.4rem
     height: 100%
-    background: $black
+    background: $colorBackground
+    color: $colorPrimary
 
     +sm
       font-size: 1.2rem

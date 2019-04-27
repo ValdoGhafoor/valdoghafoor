@@ -82,9 +82,9 @@ export default {
     flex-direction: column
     justify-content: center
     align-items: center
-    color: $white
-    background: $black
-    border: 4px solid $lightblue
+    background: $colorBackground
+    border: 8px solid transparent
+    border-image: $colorVerticalGradient 5
     background-repeat: repeat
     background-position: center
     transition-duration: 500ms
@@ -93,7 +93,7 @@ export default {
     cursor: pointer
 
     &:not(&-selected):hover
-      background: $light
+      background: $gray
 
     &-hidden
       background: transparent
@@ -103,26 +103,32 @@ export default {
     &-back
       transform-origin: center
       transform: translateZ(calc(var(--dimension) * -1))
+      border: none
 
     &-front
       transform-origin: center
       transform: scaleX(-1)
+      border: none
 
     &-bottom
       transform-origin: center bottom
       transform: rotateX(90deg)
-      bottom: -1px
+      bottom: 0
       left: 0
+      border-left: none
+      border-right: none
 
     &-top
       top: 0
       left: 0
       transform-origin: center top
       transform: rotateX(-90deg)
+      border-left: none
+      border-right: none
 
     &-left
       top: 0
-      left: 1px
+      left: 0
       transform-origin: left center
       transform: rotateY(90deg)
 

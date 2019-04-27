@@ -14,7 +14,7 @@ export default {
         animationDuration: '1s',
       }"
     >
-      <span :class="$style['Declaration']">const</span> freelance = {
+      <span :class="$style['Declaration']">const</span> freelance = <span :class="$style['Declaration']">{</span>
     </div>
     <div
       :class="$style['Line']"
@@ -54,7 +54,7 @@ export default {
       }"
     >
       <div :class="$style['Spacer']" />
-      preferences: [
+      preferences: <span :class="$style['Declaration']">[</span>
     </div>
     <div
       :class="$style['Line']"
@@ -97,7 +97,7 @@ export default {
       }"
     >
       <div :class="$style['Spacer']" />
-      ]
+      <span :class="$style['Declaration']">]</span>
     </div>
     <div
       :class="$style['Line']"
@@ -106,7 +106,7 @@ export default {
         animationDuration: '0.01s',
       }"
     >
-      }
+      <span :class="$style['Declaration']">}</span>
     </div>
   </div>
 </template>
@@ -123,6 +123,7 @@ export default {
       animation-name: typing
       animation-timing-function: steps(60, end)
       animation-iteration-count: 1
+      color: $colorTertiary
 
       .Spacer
         width: 2rem
@@ -130,11 +131,11 @@ export default {
         min-width: 2rem
 
       .Value
-        color: $orange
+        color: $colorPrimary
         margin-left: 1rem
 
       .Declaration
-        color: $purple
+        color: $colorSecondary
         margin-right: 1rem
 
     +sm
