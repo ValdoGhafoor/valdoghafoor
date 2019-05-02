@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import App from '@/ui/App.vue'
 import store from '@/store'
-import { Plugin } from '@backmarket/modal'
+import VModal from 'vue-js-modal'
 import VeeValidate from 'vee-validate'
-import '@/ui/_commons'
 
 Vue.config.productionTip = false
-Vue.use(Plugin)
+
+Vue.use(VModal)
 Vue.use(VeeValidate)
 
 new Vue({

@@ -43,14 +43,20 @@ export default {
 
 <style lang='sass' module>
   .Root
-    padding: 0.2rem
-    border-radius: 1.5rem
-    font-size: 1.8rem
-    border: 1px solid $colorPrimary
-    margin-bottom: 0.5rem
-    font-weight: bold
     width: 100%
+    padding: .2rem
+    border: 1px solid $colorPrimary
+    border-radius: 1.5rem
+    font-size: 1.2rem
+    font-weight: bold
     color: $white
+
+    +md
+      font-size: 2rem
+      margin-bottom: .5rem
+
+    +lg
+      font-size: 2.5rem
 
     &::before
       padding-left: 1rem

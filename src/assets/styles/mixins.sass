@@ -1,11 +1,19 @@
 @mixin sm
-  @media (max-width: #{$screen-sm-max})
+  @media (min-width: #{$screen-sm-min})
     @content
 
 @mixin md
-  @media (max-width: #{$screen-md-max})
+  @media (min-width: #{$screen-md-min})
     @content
 
 @mixin lg
-  @media (max-width: #{$screen-lg-max})
+  @media (min-width: #{$screen-lg-min})
+    @content
+
+@mixin xl
+  @media (min-width: #{$screen-xl-min})
+    @content
+
+@mixin landscape
+  @media (orientation: landscape) and (max-width: #{$screen-md-min})
     @content

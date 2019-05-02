@@ -83,7 +83,7 @@ export default {
     justify-content: center
     align-items: center
     background: $colorBackground
-    border: 8px solid transparent
+    border: .8rem solid transparent
     border-image: $colorVerticalGradient 5
     background-repeat: repeat
     background-position: center
@@ -91,6 +91,9 @@ export default {
     transition-timing-function: ease
     pointer-events: all
     cursor: pointer
+
+    +md
+      border-width: 1rem
 
     &:not(&-selected):hover
       background: $gray
@@ -140,8 +143,6 @@ export default {
 
     .Content
       width: 100%
-      max-width: 40rem
-      max-height: 40rem
       height: calc(100% - 2px)
       padding: 1rem
       display: flex
@@ -153,5 +154,12 @@ export default {
       position: absolute
       top: 50%
       transform: translate(0, -50%)
+      font-size: 1.6rem
+      user-select: none
 
+      +md
+        font-size: 2.5rem
+
+      +lg
+        font-size: 3rem
 </style>

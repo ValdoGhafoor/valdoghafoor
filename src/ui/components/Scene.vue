@@ -2,45 +2,89 @@
   <div
     :class="$style['Root']"
   >
-    <h1 :class="$style['Title']">
-      Welcome to my <span :class="$style['Tron']">CUBEFOLIO.</span><br>
-      Click on faces to naviguate.<br>
-      Press escape if you need to step back.
-    </h1>
-    <Room />
+    <button
+      :class="$style['BackButton']"
+      @click="setLookingSide('default')"
+      :style="{ visibility: lookingSide === 'default' ? 'hidden' : 'visible' }"
+    >
+      <svg :class="$style['BackIcon']">
+        <use xlink:href="#back" />
+      </svg>
+      Back
+    </button>
+    <div :class="$style['Container']">
+      <Room />
+    </div>
+    <div :class="$style['Dummy']" />
   </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
     Room: () => import('@/ui/components/Room')
-  }
+  },
+  computed: mapState({
+    lookingSide: 'lookingSide'
+  }),
+  methods: mapActions(['setLookingSide'])
 }
 </script>
 
 <style lang='sass' module>
   .Root
+    --dimension: 80vw
     width: 100%
     height: 100%
     display: flex
-    justify-content: center
+    justify-content: space-between
     flex-direction: column
-    align-items: center
     position: relative
     overflow: scroll
+    padding: 1rem 2rem
 
-    .Title
+    +sm
+      --dimension: 80vw
+
+    +md
+      --dimension: 60vw
+
+    +lg
+      --dimension: 50vw
+
+    +xl
+      --dimension: 40vw
+
+    +landscape
+      --dimension: 80vh
+
+    .Container
+      display: flex
+      flex-direction: column
+      align-items: center
+
+    .BackButton,
+    .Dummy
+      height: 3rem
+      width: 10rem
+
+    .BackButton
+      background: none
+      border: 0
+      cursor: pointer
+      display: flex
+      align-items: center
       color: $colorPrimary
-      font-size: 2rem
-      text-align: center
+      font-weight: bold
+      text-transform: uppercase
+      padding: 0
 
-      +sm
-        font-size: 1.6rem
+      .BackIcon
+        width: 2rem
+        height: 2rem
+        fill: $colorPrimary
+        margin: 1rem
 
-      .Tron
-        background: $colorHorizontalGradient
-        background-clip: text
-        -webkit-text-fill-color: transparent
 </style>

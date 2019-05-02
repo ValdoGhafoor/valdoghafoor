@@ -19,10 +19,10 @@ export default {
     document.removeEventListener('keydown', this.onKey)
   },
   methods: {
+    ...mapActions(['setLookingSide']),
     goBack () {
       this.setLookingSide('default')
     },
-    ...mapActions(['setLookingSide']),
     onKey (event) {
       const ESCAPE_KEY = 27
 
@@ -36,6 +36,7 @@ export default {
     Skills: () => import('@/ui/components/Skills'),
     Description: () => import('@/ui/components/Description'),
     Lost: () => import('@/ui/components/Lost'),
+    Projects: () => import('@/ui/components/Projects'),
     Hobbies: () => import('@/ui/components/Hobbies'),
     Contact: () => import('@/ui/components/Contact')
   }
@@ -60,7 +61,9 @@ export default {
       <Wall
         side="right"
         title="projects"
-      />
+      >
+        <Projects />
+      </Wall>
 
       <Wall
         side="top"
@@ -92,14 +95,10 @@ export default {
 
 <style lang='sass' module>
   .Root
-    --dimension: 40vw
     width: var(--dimension)
     height: var(--dimension)
     perspective: var(--dimension)
     overflow: hidden
-
-    +md
-      --dimension: 80vw
 
   .Box
     width: var(--dimension)
@@ -111,24 +110,24 @@ export default {
     pointer-events: none
 
     &-right
-      transform: translate3d(calc(var(--dimension) / 2), 0, calc(var(--dimension) / -20)) rotateY(90deg)
+      transform: translate3d(calc(var(--dimension) / 2), 0, calc(var(--dimension) / -5)) rotateY(90deg)
 
     &-left
-      transform: translate3d(calc(var(--dimension) / 2 * -1), 0, calc(var(--dimension) / -20)) rotateY(-90deg)
+      transform: translate3d(calc(var(--dimension) / 2 * -1), 0, calc(var(--dimension) / -5)) rotateY(-90deg)
 
     &-front
-      transform: translate3d(0, 0, calc(var(--dimension) / 2 * -1)) rotateX(0deg) rotateY(-180deg)
+      transform: translate3d(0, 0, calc(var(--dimension) / 1.5 * -1)) rotateX(0deg) rotateY(-180deg)
 
     &-default
       transform: translate3d(0, 0, 0)
 
     &-back
-      transform: translate3d(0, 0, calc(var(--dimension) / 2.5))
+      transform: translate3d(0, 0, calc(var(--dimension) / 3.1))
 
     &-top
-      transform: translate3d(0, calc(var(--dimension) / 2 * -1), calc(var(--dimension) / -20)) rotateX(90deg)
+      transform: translate3d(0, calc(var(--dimension) / 2 * -1), calc(var(--dimension) / -15)) rotateX(90deg)
 
     &-bottom
-      transform: translate3d(0, calc(var(--dimension) / 2), calc(var(--dimension) / -20)) rotateX(-90deg)
+      transform: translate3d(0, calc(var(--dimension) / 2), calc(var(--dimension) / -5)) rotateX(-90deg)
 
 </style>

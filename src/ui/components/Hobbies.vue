@@ -64,13 +64,17 @@
         width: 10rem
         height: 10rem
         padding: 1rem
-        border: 0.3rem solid $colorPrimary
+        border: .3rem solid $colorPrimary
         border-radius: 50%
         margin: 0 auto
 
         +sm
-          width: 8rem
-          height: 8rem
+          width: 12rem
+          height: 12rem
+
+        +md
+          width: 15rem
+          height: 15rem
 
         &-wine,
         &-netflix

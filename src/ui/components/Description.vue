@@ -1,11 +1,3 @@
-<script>
-export default {
-  mounted () {
-    document.querySelector(this.$styles['Line'])
-  }
-}
-</script>
-
 <template>
   <div :class="$style['Root']">
     <div
@@ -113,10 +105,10 @@ export default {
 
 <style lang='sass' module>
   .Root
-    font-size: 2.5rem
+    font-size: 1.6rem
 
     .Line
-      margin: 0.5rem 0
+      margin: .5rem 0
       width: 100%
       white-space: nowrap
       overflow: hidden
@@ -126,9 +118,13 @@ export default {
       color: $colorTertiary
 
       .Spacer
-        width: 2rem
+        width: 1rem
         display: inline-block
-        min-width: 2rem
+        min-width: 1rem
+
+        +md
+          width: 2rem
+          min-width: 2rem
 
       .Value
         color: $colorPrimary
@@ -139,7 +135,16 @@ export default {
         margin-right: 1rem
 
     +sm
-      font-size: 1.6rem
+      font-size: 3rem
+
+    +md
+      font-size: 2.5rem
+
+    +lg
+      font-size: 3.5rem
+
+    +landscape
+      font-size: 1.5rem
 
     @keyframe typing
       from

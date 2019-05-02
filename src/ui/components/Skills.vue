@@ -68,5 +68,5 @@ export default {
     width: 100%
 
     .Skill
-      margin: 0.5rem 0
+      margin: .5rem 0
 </style>
