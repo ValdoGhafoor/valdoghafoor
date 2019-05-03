@@ -7,7 +7,8 @@ export default {
     Scene: () => import('@/ui/components/Scene'),
     SvgSprite: () => import('@/ui/components/SvgSprite'),
     ContactModal: () => import('@/ui/components/ContactModal'),
-    DisclaimerModal: () => import('@/ui/components/DisclaimerModal')
+    DisclaimerModal: () => import('@/ui/components/DisclaimerModal'),
+    ProjectModal: () => import('@/ui/components/ProjectModal')
   }
 }
 </script>
@@ -18,6 +19,7 @@ export default {
     <SvgSprite />
     <ContactModal />
     <DisclaimerModal />
+    <ProjectModal />
   </div>
 </template>
 

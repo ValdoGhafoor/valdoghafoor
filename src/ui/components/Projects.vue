@@ -1,40 +1,48 @@
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   data () {
     return {
       projects: [
         {
-          image: require('@/assets/images/portfolios/ly.png'),
+          portfolio: require('@/assets/images/portfolios/ly.png'),
           thumbnail: require('@/assets/images/thumbnails/ly.png'),
           logo: require('@/assets/images/logos/ly.png'),
           name: 'Luxurynsight'
         },
         {
-          image: require('@/assets/images/portfolios/agorize.png'),
+          portfolio: require('@/assets/images/portfolios/agorize.png'),
           thumbnail: require('@/assets/images/thumbnails/agorize.png'),
           logo: require('@/assets/images/logos/agorize.jpg'),
           name: 'Agorize'
         },
         {
-          image: require('@/assets/images/portfolios/bm.png'),
+          portfolio: require('@/assets/images/portfolios/bm.png'),
           thumbnail: require('@/assets/images/thumbnails/bm.png'),
           logo: require('@/assets/images/logos/bm.png'),
           name: 'BackMarket'
         },
         {
-          image: require('@/assets/images/portfolios/bof.png'),
+          portfolio: require('@/assets/images/portfolios/bof.png'),
           thumbnail: require('@/assets/images/thumbnails/bof.png'),
           logo: require('@/assets/images/logos/bof.png'),
           name: 'Bank of Fashion'
         },
         {
-          image: require('@/assets/images/portfolios/frk.png'),
+          portfolio: require('@/assets/images/portfolios/frk.png'),
           thumbnail: require('@/assets/images/thumbnails/frk.png'),
           logo: require('@/assets/images/logos/frk.png'),
           name: 'FreelanceRepublik'
         }
       ]
+    }
+  },
+  methods: {
+    ...mapActions(['setCurrentProject']),
+    onClick (project) {
+      this.setCurrentProject(project)
+      this.$modal.show('projectModal')
     }
   }
 }
@@ -48,6 +56,7 @@ export default {
           :class="$style['Thumbnail']"
           :key="`thumbnail-${index}`"
           :data-name="project.name"
+          @click="onClick(project)"
         >
           <img
             :class="$style['ThumbnailImage']"
@@ -59,6 +68,7 @@ export default {
           :src="project.logo"
           :class="$style['Logo']"
           :key="`logo-${index}`"
+          @click="onClick(project)"
         >
       </template>
     </div>

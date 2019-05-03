@@ -272,13 +272,13 @@ export default {
         left: 1rem
 
         &-sent
-          animation: fly 1s ease
+          animation: fly 1.3s ease
           animation-fill-mode: forwards
 
           & + .SentIcon
             animation: scale .3s ease-in-out
             animation-fill-mode: forwards
-            animation-delay: 1s
+            animation-delay: 1.3s
 
       .SentIcon
         width: calc(100% - 2rem)
