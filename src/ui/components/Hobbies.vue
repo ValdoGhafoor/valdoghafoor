@@ -64,7 +64,7 @@
         width: 10rem
         height: 10rem
         padding: 1rem
-        border: .3rem solid $colorPrimary
+        border: .3rem solid $colorSecondary
         border-radius: 50%
         margin: 0 auto
 
@@ -78,15 +78,15 @@
 
         &-wine,
         &-netflix
-        stroke: $colorPrimary
+        stroke: $colorSecondary
         fill: $white
 
         &-boxing
           fill: $white
-          color: $colorPrimary
+          color: $colorSecondary
 
         &-games
           fill: $white
-          color: $colorPrimary
-          stroke: $colorPrimary
+          color: $colorSecondary
+          stroke: $colorSecondary
 </style>

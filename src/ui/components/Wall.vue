@@ -146,6 +146,7 @@ export default {
       height: calc(100% - 2px)
       padding: 1rem
       display: flex
+      color: $colorSecondary
       justify-content: center
       align-items: center
 

@@ -13,7 +13,7 @@
       Back
     </button>
     <div :class="$style['Container']">
-      <Room />
+      <Cube />
     </div>
     <div :class="$style['Dummy']" />
   </div>
@@ -24,7 +24,7 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
-    Room: () => import('@/ui/components/Room')
+    Cube: () => import('@/ui/components/Cube')
   },
   computed: mapState({
     lookingSide: 'lookingSide'

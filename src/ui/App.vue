@@ -37,5 +37,8 @@ export default {
       font-size: 1.6rem
 
     +lg
+      font-size: 2rem
+
+    +xl
       font-size: 3rem
 </style>

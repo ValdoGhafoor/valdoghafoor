@@ -25,7 +25,7 @@ export default {
   >
     <div :class="$style['Content']">
       <img
-        v-if="currentProject"
+        v-show="currentProject"
         :src="currentProject.portfolio"
         :class="$style['Image']"
       >

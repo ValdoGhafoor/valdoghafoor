@@ -1,10 +1,5 @@
 <template>
-  <div :class="$style['Root']">
+  <div>
     Are you lost ?
   </div>
 </template>
-
-<style lang='sass' module>
-  .Root
-    font-size: 2.5rem
-</style>

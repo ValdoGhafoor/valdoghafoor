@@ -69,4 +69,7 @@ export default {
 
     .Skill
       margin: .5rem 0
+
+      +md
+        margin: 1rem 0
 </style>

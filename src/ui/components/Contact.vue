@@ -2,19 +2,24 @@
   <div :class="$style['Root']">
     <div :class="$style['Infos']">
       <div :class="$style['Info']">
+        <svg :class="$style['Icon']">
+          <use xlink:href="#mail" />
+        </svg>
         contact@valdoghafoor.com
       </div>
       <div :class="$style['Info']">
-        06.51.40.40.74
+        <svg :class="$style['Icon']">
+          <use xlink:href="#phone" />
+        </svg>(+33)6 51 40 40 74
       </div>
     </div>
-
+    <!--
     <button
       :class="$style['Button']"
       @click="$modal.show('contactModal')"
     >
       Send me a message
-    </button>
+    </button> -->
   </div>
 </template>
 
@@ -73,4 +78,17 @@ export default {
       border-radius: 0.4rem
       font-weight: bold
       cursor: pointer
+
+    .Infos
+      .Info
+        display: flex
+        align-items: center
+        margin-bottom: 2rem
+
+        .Icon
+          stroke: $colorSecondary
+          fill: $colorSecondary
+          width: 3rem
+          height: 3rem
+          margin-right: 1rem
 </style>
