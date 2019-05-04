@@ -1,43 +1,10 @@
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
-  data () {
-    return {
-      projects: [
-        {
-          portfolio: require('@/assets/images/portfolios/ly.png'),
-          thumbnail: require('@/assets/images/thumbnails/ly.png'),
-          logo: require('@/assets/images/logos/ly.png'),
-          name: 'Luxurynsight'
-        },
-        {
-          portfolio: require('@/assets/images/portfolios/agorize.png'),
-          thumbnail: require('@/assets/images/thumbnails/agorize.png'),
-          logo: require('@/assets/images/logos/agorize.jpg'),
-          name: 'Agorize'
-        },
-        {
-          portfolio: require('@/assets/images/portfolios/bm.png'),
-          thumbnail: require('@/assets/images/thumbnails/bm.png'),
-          logo: require('@/assets/images/logos/bm.png'),
-          name: 'BackMarket'
-        },
-        {
-          portfolio: require('@/assets/images/portfolios/bof.png'),
-          thumbnail: require('@/assets/images/thumbnails/bof.png'),
-          logo: require('@/assets/images/logos/bof.png'),
-          name: 'Bank of Fashion'
-        },
-        {
-          portfolio: require('@/assets/images/portfolios/frk.png'),
-          thumbnail: require('@/assets/images/thumbnails/frk.png'),
-          logo: require('@/assets/images/logos/frk.png'),
-          name: 'FreelanceRepublik'
-        }
-      ]
-    }
-  },
+  computed: mapState({
+    projects: 'projects'
+  }),
   methods: {
     ...mapActions(['setCurrentProject']),
     onClick (project) {
