@@ -38,7 +38,7 @@ export default {
         :class="$style['Previous']"
         @click="previousProject"
       >
-        <svg :class="$style['PreviousIcon']">
+        <svg :class="$style['Icon']">
           <use xlink:href="#previous" />
         </svg>
       </div>
@@ -47,7 +47,7 @@ export default {
         :class="$style['Next']"
         @click="nextProject"
       >
-        <svg :class="$style['NextIcon']">
+        <svg :class="$style['Icon']">
           <use xlink:href="#next" />
         </svg>
       </div>
@@ -68,7 +68,7 @@ export default {
 
     .Banner
       position: absolute
-      padding: 0.8rem 0
+      padding: 1rem 0
       width: 100%
       background: rgba(0, 0, 0, 0.5)
       color: $white
@@ -76,6 +76,9 @@ export default {
       text-align: center
       bottom: 0
       z-index: 1
+
+      +md
+        padding: 1.5rem 0
 
     .Previous,
     .Next
@@ -87,9 +90,12 @@ export default {
       z-index: 1
       cursor: pointer
       user-select: none
+      transition: transform 0.2s ease-out
 
-      .PreviousIcon,
-      .NextIcon
+      &:hover
+        transform: scale(1.2)
+
+      .Icon
         width: 4rem
         height: 4rem
 
@@ -102,9 +108,9 @@ export default {
           height: 8rem
 
     .Previous
-      left: 0
+      left: -0.5rem
 
     .Next
-      right: 0
+      right: -0.5rem
 
 </style>

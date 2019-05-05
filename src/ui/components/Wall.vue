@@ -91,6 +91,7 @@ export default {
     transition-timing-function: ease
     pointer-events: all
     cursor: pointer
+    user-select: none
 
     +md
       border-width: 1rem
